@@ -1,5 +1,7 @@
 # Fast Spawn
 
+[![Join Discord](https://img.shields.io/badge/Join-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/bX4RzunsxC)
+
 Shortens Stormworks' **“Spawning...”** screen when joining a multiplayer game or respawning, and speeds up parts of world loading.
 
 - Finishes ready map tiles sooner while someone is waiting to spawn.
