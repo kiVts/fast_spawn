@@ -12,6 +12,8 @@ Shortens Stormworks' **“Spawning...”** screen when joining a multiplayer gam
 
 The main multiplayer improvements need the mod on the **host**. Players without it can still join and benefit. Installing it on a client also provides local loading improvements and the loading-screen wait adjustment. It works in single player too.
 
+This mod is made in compliance of Geometa EULA. Under Section 3 Paragraph 4, `You must not modify, merge, distribute, translate, reverse engineer, decompile, or try to obtain or use source code for the Geometa Services, except for mods as per section 5 or where permitted by applicable law.` In section 5, `You may create and share mods and other content for our games, provided they comply with this Agreement. You own the content you create, including the content created in game, mods created with Geometa tool kits, community websites, etc.`
+
 ## Installation
 
 Install [SWML](https://github.com/kiVts/swml), then add `fast_spawn.zip` from this repository's releases through the loader's **Add mod...** button. Enable Fast Spawn and restart the game. I also recommend you install [No Crash Uploads](https://github.com/kiVts/no_crashlog_upload) so you don't upload a crash-report with an injected DLL to Geometa ( And a crash reason overwhelmingly likely to be due to one of these mods). consider other mods as well!
