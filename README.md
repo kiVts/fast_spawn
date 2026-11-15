@@ -1,6 +1,10 @@
 # Fast Spawn
 
-[![Join Discord](https://img.shields.io/badge/Join-Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/bX4RzunsxC)
+[![Join Discord](https://swml.kivts.net/brand/badges/dark/discord.svg)](https://discord.gg/bX4RzunsxC)
+[![Requires SWML](https://swml.kivts.net/brand/badges/dark/requires-swml.svg)](https://github.com/kiVts/swml/releases/latest)
+[![SWML website](https://swml.kivts.net/brand/badges/dark/website.svg)](https://swml.kivts.net/)
+[![GitHub releases](https://swml.kivts.net/brand/badges/dark/github.svg)](https://github.com/kiVts/fast_spawn/releases)
+[![Support on Buy Me a Coffee](https://swml.kivts.net/brand/badges/dark/coffee.svg)](https://buymeacoffee.com/kivts)
 
 Shortens Stormworks' **“Spawning...”** screen when joining a multiplayer game or respawning, and speeds up parts of world loading.
 
@@ -39,10 +43,3 @@ These budgets control additional tile-completion work. A single expensive operat
 Check `fast_spawn.log` through SWML's **Open logs** button for spawn progress and vehicle-loading timings. Include the relevant session logs when reporting an issue.
 
 This mod is a work in progress. While stable*, there might be further improvements or regressions. See [CHANGELOG.md](CHANGELOG.md) for version history.
-
-
-Like what I do?
-
-<a href="https://buymeacoffee.com/kivts">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="120" alt="Buy Me a Coffee">
-</a>
