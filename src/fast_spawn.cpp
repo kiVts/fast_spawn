@@ -21,7 +21,8 @@ constexpr uintptr_t kTileManager = 0x140586e20; // tiles wanted per player + rea
 constexpr uintptr_t kTileLookup = 0x140576690;  // (grid, x | z << 32) -> tile or null
 constexpr uintptr_t kJobDone = 0x14017d240;     // (mm_thread_task) -> finished
 constexpr uintptr_t kIsHost = 0x140ceb6ff;      // byte: 1 host / single player, 0 client
-size_t tile_ring() { return per_build<size_t>(0x6470, 0x6478); }
+size_t g_tile_ring = 0;
+size_t tile_ring() { return g_tile_ring; }
 
 using u64 = uint64_t;
 using SpawnEnter_t = u64 (*)(u64, u64, u64, u64);
@@ -124,11 +125,6 @@ int tile_under_player(const uint8_t* world)
     }
 }
 
-// --- host: boost window ------------------------------------------------------------------------------------------
-// Not one thread: the host's tile code runs on the game-state thread while the world loads (2026-10-21 01:55: the
-// spawn's tile manager calls were all on it) and on the update thread afterwards, and the tile manager is also called
-// from vehicle-logic threads (physics_fixes runs those in parallel). g_mu guards all of the state below; it is never
-// held across a call into the game.
 SRWLOCK g_mu = SRWLOCK_INIT;
 struct Lock {
     Lock() { AcquireSRWLockExclusive(&g_mu); }
@@ -385,6 +381,8 @@ bool install()
     g_lookup = game_ptr<TileLookup_t>(kTileLookup);
     g_job_done = game_ptr<JobDone_t>(kJobDone);
     g_is_host = game_ptr<const volatile uint8_t*>(kIsHost);
+    g_tile_ring = game_field("world", 0x6470);
+    if (!g_tile_ring) return false;
 
     bool ok = hook_game(kSpawnEnter, reinterpret_cast<void*>(&enter_detour), reinterpret_cast<void**>(&g_enter_orig)) &&
               hook_game(kSpawnUpdate, reinterpret_cast<void*>(&update_detour), reinterpret_cast<void**>(&g_update_orig)) &&

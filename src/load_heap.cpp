@@ -143,9 +143,6 @@ bool install()
         swlog("load heap: off (%s)", mode == 0 ? "load_heap=0" : "not Wine; Windows' heap doesn't serialize the loads");
         return true;
     }
-    // Top-down (thread_arenas.h): bottom-up, Wine put the reservation right above the game's image and code that
-    // needs memory within reach of the exe (physics_fixes' radar stub, hook trampolines) found none (2026-10-22
-    // 02:35 / 02:52: "radar msgs: no memory within 4 GB above the game; off").
     if (!g_heap.reserve(kArenas)) {
         swlog("load heap: couldn't reserve address space for the arenas, off");
         return true;

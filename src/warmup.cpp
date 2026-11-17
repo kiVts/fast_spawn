@@ -1,11 +1,3 @@
-// Background warm-up: read the game's data files once at start-up, in parallel, so the first load doesn't pay for them.
-//
-// Straight after a reboot a game load took 30.9 s (2026-10-21 13:15), 24 s of it opening the ~29,000 files that exist
-// (0.82 ms each; 0.01-0.02 ms once they have been opened since boot: first-open scans and cold reads). The game opens
-// them one by one on its loading thread. This lists rom\ and the Stormworks workshop folder when the game starts and
-// opens + reads every file on a few background threads (Windows background priority, so the game's own disk and CPU
-// use come first), the folders the game loads first first. Read only: GENERIC_READ, OPEN_EXISTING, sharing everything,
-// nothing is written or kept open. Settings: [load] warmup_threads (0 = off). Logs "warm-up:" when done.
 
 #include "hooks.h"
 #include "log.h"

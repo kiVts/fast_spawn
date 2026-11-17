@@ -170,10 +170,6 @@ void vehicle_queue_loop(uint8_t* q)
                 data = nullptr;
                 cap = 0;
             }
-            // The game leaves head as it was here; the next push regrows to 32 entries without resetting it, and a
-            // head past 31 then never wraps and the following growth copies from past the buffer (2026-10-21 21:27
-            // crash). The game only gets away with it because its shrink below keeps cap at 32 by the time the ring
-            // is empty. Nothing is queued and there is no buffer, so 0 is the only meaningful head.
             head = 0;
         } else if (count < old_cap / 2 && old_cap > 32) { // as the game's loop: shrink (resets head)
             g_resize(q + 0x18, old_cap / 2);

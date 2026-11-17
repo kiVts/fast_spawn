@@ -18,5 +18,6 @@ swml_add_mod(fast_spawn SOURCES
   src/warmup.cpp
   src/load_heap.cpp
   src/setup.cpp
+  src/link_pass.cpp
 )
 target_include_directories(fast_spawn PRIVATE src)
