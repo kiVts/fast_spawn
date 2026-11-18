@@ -1,3 +1,5 @@
+1.8.2: Keeps your character's look when starting a new world.
+
 1.8.1: Speed up workbench loading and spawning for vehicles with many bodies.
 
 1.8.0: under Wine every game thread allocates from an arena of its own, not only the vehicle load threads ([spawn] all_threads, "game heap 60s").
